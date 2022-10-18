@@ -14,9 +14,19 @@ hexo.extend.filter.register('after_generate', function () {
   const config = hexo.config.categoryBar || hexo.theme.config.categoryBar
   // 如果配置开启
   if (!(config && config.enable)) return
-    // 获取所有分类
-    var categories_list= hexo.locals.get('categories').data;
-    var categories_message= config.message;
+
+  var categories_list
+  var categories_message
+    if(config.specify.enable) {
+      // 获取指定分类
+      categories_list = config.content;
+    }else {
+      // 获取所有分类
+      categories_list= hexo.locals.get('categories').data;
+    }
+    
+    categories_message= config.message;
+
     //声明一个空数组用来存放合并后的对象
     var new_categories_list = [];
     // 合并分类属性和新添加的封面描述属性
