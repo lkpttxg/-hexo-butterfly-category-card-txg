@@ -17,12 +17,24 @@ hexo.extend.filter.register('after_generate', function () {
 
   var categories_list
   var categories_message
+  var categories = hexo.locals.get('categories').data;
     if(config.specify.enable) {
-      // 获取指定分类
-      categories_list = config.content;
+      // 获取所有的名字
+      var categories_list_name = config.content;
+      // 由该名字获取所有categories_list
+      for(var i = 0;i<categories_list_name.length;i++) {
+        //获取其category
+        var category = categories.get(categories_list_name[i]);
+        //创建一个新的对象
+        categories_list[i] = {
+          name: categories_list_name[i],
+          url: category.url,
+          length: category.length
+        }
+      }
     }else {
       // 获取所有分类
-      categories_list= hexo.locals.get('categories').data;
+      categories_list= categories;
     }
     
     categories_message= config.message;
