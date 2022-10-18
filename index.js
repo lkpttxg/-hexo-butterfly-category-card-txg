@@ -25,14 +25,17 @@ hexo.extend.filter.register('after_generate', function () {
       for(var i = 0;i<categories_list_name.length;i++) {
         //获取其category
         var category
+        var flag = false;
+        // console.log(categories_list_name[i])
         for(var j = 0;j<categories.length;j++) {
-          if(categories[j].name == categories_list_name[i]) {
+          if(categories[j].name == categories_list_name[i].name) {
             category = categories[j];
+            flag  = true;
             break;
           }
         }
         //创建一个新的对象
-        categories_list[i] = category;
+        if(flag) categories_list[i] = category;
       }
     }else {
       // 获取所有分类
