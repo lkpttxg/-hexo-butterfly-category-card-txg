@@ -28,7 +28,7 @@ hexo.extend.filter.register('after_generate', function () {
         var flag = false;
         // console.log(categories_list_name[i])
         for(var j = 0;j<categories.length;j++) {
-          if(categories[j].name == categories_list_name[i].name) {
+          if(categories[j].name == categories_list_name[i].name.substring(1)) {
             category = categories[j];
             flag  = true;
             break;
