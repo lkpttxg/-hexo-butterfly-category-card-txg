@@ -15,7 +15,7 @@ hexo.extend.filter.register('after_generate', function () {
   // 如果配置开启
   if (!(config && config.enable)) return
 
-  var categories_list
+  var categories_list = new Array()
   var categories_message
   var categories = hexo.locals.get('categories').data;
     if(config.specify.enable) {
