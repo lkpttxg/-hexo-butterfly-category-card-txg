@@ -114,5 +114,3 @@ hexo.extend.helper.register('priority', function(){
   return priority
 })
 )
-
-// hello
