@@ -1,5 +1,5 @@
 'use strict'
-// 全局声明插件代号
+// 全局声明插件代号-
 const pluginname = 'butterfly_categories_card'
 // 全局声明依赖
 const pug = require('pug')
